@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   console.log(req.body.shell_cmd);
   const command = req.body.shell_cmd;
-  // command = command.shell_cmd;
-  console.log('command to exec is: ', command);
+  const args = req.body.args;
+  spawnSync(command, args); 
   res.send('success');
 });
 
